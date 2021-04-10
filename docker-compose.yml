@@ -14,8 +14,12 @@ services:
       TZ: 'Europe/London'
       WEBPASSWORD: ${WEBPASSWORD}
     volumes:
-      - './volumes/etc/pihole/:/etc/pihole/'
-      - './volumes/etc/dnsmasq.d/:/etc/dnsmasq.d/'
+      - etc-pihole:/etc/pihole/
+      - etc-dnsmasq.d:/etc/dnsmasq.d/
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
+
+volumes:
+  etc-pihole:
+  etc-dnsmasq.d:
