@@ -6,6 +6,7 @@ set -ex
 FILE=/etc/pihole/youtube.hosts
 
 # Fetch the list of domains, remove the ip's and save them
+# api.hackertarget has a quota
 curl 'https://api.hackertarget.com/hostsearch/?q=googlevideo.com' \
 | awk -F, 'NR>1{print $1}' \
 | grep -vE "redirector|manifest" > $FILE

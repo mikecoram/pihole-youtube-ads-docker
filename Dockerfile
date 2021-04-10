@@ -1,11 +1,10 @@
 FROM pihole/pihole:latest
 
-COPY youtube-ads.bash /home/pi/youtube-ads.bash
-COPY youtube-ads-cron /etc/cron.d/youtube-ads-cron
+COPY update-youtube-ad-domains.bash /home/pi/update-youtube-ad-domains.bash
+COPY build-scripts /home/pi/build-scripts
 
-RUN chmod 0644 /etc/cron.d/youtube-ads-cron \
-  && crontab /etc/cron.d/youtube-ads-cron \
-  && touch /var/log/pihole.log \
-  && /home/pi/youtube-ads.bash \
-  && /usr/bin/sqlite3 /etc/pihole/gravity.db 'INSERT INTO adlist (address) values ("file:///etc/pihole/youtube.hosts");' \
-  && pihole -g
+RUN chmod +x /home/pi/build-scripts/*.bash \
+  && /home/pi/build-scripts/add-youtube-hosts-to-adlist.bash \
+  && /home/pi/build-scripts/get-inital-youtube-ad-domains.bash \
+  && /home/pi/build-scripts/add-hourly-youtube-hosts-update-to-cron.bash \
+  && rm -r /home/pi/build-scripts
