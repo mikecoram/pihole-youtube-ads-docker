@@ -7,4 +7,5 @@ RUN chmod 0644 /etc/cron.d/youtube-ads-cron \
   && crontab /etc/cron.d/youtube-ads-cron \
   && touch /var/log/pihole.log \
   && /home/pi/youtube-ads.bash \
-  && echo "file:///etc/pihole/youtube.hosts" >> /etc/pihole/adlists.list
+  && /usr/bin/sqlite3 /etc/pihole/gravity.db 'INSERT INTO adlist (address) values ("file:///etc/pihole/youtube.hosts");' \
+  && pihole -g
