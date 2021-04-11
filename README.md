@@ -6,8 +6,13 @@ Based on script by ErikFontanel: https://gist.github.com/ErikFontanel/4ee1ab393b
 
 Every 10 minutes the youtube ads host list will be updated with domains from https://api.hackertarget.com/hostsearch/?q=googlevideo.com and any found in your pihole logs.
 
-## Usage:
+## Usage
 
-```bash
+```sh
 WEBPASSWORD=asecurepassword docker-compose up -d
 ```
+
+## Requirements
+
+* docker
+* docker-compose

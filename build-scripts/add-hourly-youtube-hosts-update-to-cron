@@ -1,0 +1,11 @@
+#!/bin/bash
+set -ex
+
+job="
+# Pi-hole-youtube-ads: Update youtube.hosts adlist every hour
+0 * * * *   root    PATH="$PATH:/usr/sbin:/usr/local/bin/" /home/pi/scripts/update-youtube-ad-domains >/var/log/youtube-ads.log 2>&1
+"
+
+echo "$job" >> /etc/cron.d/pihole
+
+/usr/local/bin/service cron restart

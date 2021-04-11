@@ -3,4 +3,4 @@ set -ex
 
 touch /var/log/pihole.log
 
-/home/pi/update-youtube-ad-domains.bash
+/home/pi/scripts/update-youtube-ad-domains

@@ -2,6 +2,8 @@
 # Based on https://gist.github.com/ErikFontanel/4ee1ab393b119690a293ba558976b113
 set -ex
 
+echo "$(date): Updating YouTube ad domains..."
+
 # File to store the YT ad domains
 FILE=/etc/pihole/youtube.hosts
 
