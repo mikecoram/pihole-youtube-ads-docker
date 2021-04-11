@@ -9,7 +9,7 @@ services:
       - "80:80/tcp"
       - "443:443/tcp"
     environment:
-      TZ: 'Europe/London'
+      TZ: ${TIMEZONE}
       WEBPASSWORD: ${WEBPASSWORD}
     volumes:
       - etc-pihole:/etc/pihole/
