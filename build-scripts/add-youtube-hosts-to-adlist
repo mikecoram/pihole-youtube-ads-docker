@@ -10,5 +10,3 @@ VALUES
 '
 
 /usr/bin/sqlite3 /etc/pihole/gravity.db "$query"
-
-pihole -g
