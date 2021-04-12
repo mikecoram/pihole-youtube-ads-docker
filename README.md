@@ -9,7 +9,9 @@ Every hour the youtube ads host list will be updated with domains from https://a
 ## Usage
 
 ```sh
-TIMEZONE=Europe/London WEBPASSWORD=asecurepassword docker-compose up -d
+TIMEZONE=Europe/London \
+WEBPASSWORD=asecurepassword \
+docker-compose up -d
 ```
 
 ## Requirements
